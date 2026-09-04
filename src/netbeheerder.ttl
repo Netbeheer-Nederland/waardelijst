@@ -1,4 +1,4 @@
-@prefix : <https://modellen.netbeheernederland.nl/waardelijst-netbeheerder#> .
+@prefix : <https://modellen.netbeheernederland.nl/waardelijst/netbeheerder#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -6,7 +6,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix status: <https://inspire.ec.europa.eu/registry/status/> .
 
-<https://modellen.netbeheernederland.nl/waardelijst-netbeheerder#> a skos:ConceptScheme ;
+<https://modellen.netbeheernederland.nl/waardelijst/netbeheerder#> a skos:ConceptScheme ;
     rdfs:seeAlso <https://begrippen.netbeheernederland.nl/id/x6zcz> ;  # TODO: Is using `exactMatch` wrong here?
     dcterms:title "Netbeheerder (NBNL waardelijst)"@nl , "System operator (NBNL code list)"@en .
 

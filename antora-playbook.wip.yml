@@ -1,0 +1,28 @@
+site:
+  url: https://ucaiug.io/prof-ap-cim
+  content:
+    sources:
+    - url: ''
+      tags: '@({1..9})*({0..9}).+({0..9})'
+      branches:
+        - master
+        - draft*
+      start_path: src
+asciidoc:
+  attributes:
+    page-pagination: ''
+    experimental: ''
+    kroki-fetch-diagram: true
+    kroki-default-format: svg@
+    kroki-server-url: http://fruit.ritger.nl:9000
+  extensions:
+    - asciidoctor-kroki
+output:
+  clean: true
+  dir: docs
+ui:
+  bundle:
+    url: ../antora-ui-cimug-standard/build/ui-bundle.zip
+#antora:
+#  extensions:
+#    - require: '/opt/build/antora/version-postprocessor.js'

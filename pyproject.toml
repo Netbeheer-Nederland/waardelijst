@@ -1,0 +1,9 @@
+[project]
+name = "prof-ap-cim"
+version = "1.0"
+description = "Application profile of 'The Profiles Vocabulary' (PROF) for describing CIM profiles."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "linkml>=1.11.1",
+]

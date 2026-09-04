@@ -1,0 +1,75 @@
+'@context':
+  id: '@id'
+  type: '@type'
+  skos: http://www.w3.org/2004/02/skos/core#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  foaf: http://xmlns.com/foaf/0.1/
+  description: dcterms:description
+  adms: http://www.w3.org/ns/adms#
+  dcterms: http://purl.org/dc/terms/
+  status: https://inspire.ec.europa.eu/registry/status/
+  identifier: dcterms:identifier
+  title:
+    '@id': dcterms:title
+    '@container': '@language'
+  '@vocab': http://www.w3.org/2004/02/skos/core#
+  '@base': https://begrippen.netbeheernederland.nl/netbeheerder/
+  concepts:
+    '@container': '@index'
+    '@index': rdfs:label
+  seeAlso: rdfs:seeAlso
+  homepage: foaf:homepage
+  hasStatus: adms:status
+id: https://begrippen.netbeheernederland.nl/netbeheerder#
+type: ConceptScheme
+seeAlso:
+  - https://begrippen.netbeheernederland.nl/id/x6zcz  # TODO: Is using `exactMatch` wrong here?
+title:
+  nl: Netbeheerder (NBNL waardelijst)
+  en: System operator (NBNL code list)
+concepts:
+  coteq:
+    type: Concept
+    prefLabel: Coteq Netbeheer B.V.
+    homepage: https://www.coteqnetbeheer.nl
+    hasStatus: status:valid
+  edsn:
+    type: Concept
+    prefLabel: Energie Data Services Nederland
+    homepage: https://www.edsn.nl 
+    hasStatus: status:valid
+  enexis:
+    type: Concept
+    prefLabel: Enexis Netbeheer B.V.
+    homepage: https://www.enexis.nl
+    hasStatus: status:valid
+  gasunie:
+    type: Concept
+    prefLabel: Gasunie Transport Services B.V.
+    homepage: https://www.gasunie.nl
+    hasStatus: status:valid
+  liander:
+    type: Concept
+    prefLabel: Liander N.V.
+    homepage: https://www.liander.nl
+    hasStatus: status:valid
+  rendo:
+    type: Concept
+    prefLabel: N.V. RENDO
+    homepage: https://www.rendonetwerken.nl
+    hasStatus: status:valid
+  stedin:
+    type: Concept
+    prefLabel: Stedin Netbeheer B.V.
+    homepage: https://www.stedin.net
+    hasStatus: status:valid
+  tennet:
+    type: Concept
+    prefLabel: TenneT TSO B.V.
+    homepage: https://www.tennet.eu
+    hasStatus: status:valid
+  westland:
+    type: Concept
+    prefLabel: Westland Infra Netbeheer B.V.
+    homepage: https://westlandinfra.nl
+    hasStatus: status:valid

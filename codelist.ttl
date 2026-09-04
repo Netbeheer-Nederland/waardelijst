@@ -1,0 +1,65 @@
+@prefix : <https://modellen.netbeheernederland.nl/waardelijst/netbeheerder#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix status: <https://inspire.ec.europa.eu/registry/status/> .
+
+<https://modellen.netbeheernederland.nl/waardelijst/netbeheerder#> a skos:ConceptScheme ;
+    rdfs:seeAlso <https://begrippen.netbeheernederland.nl/id/x6zcz> ;  # TODO: Is using `exactMatch` wrong here?
+    dcterms:title "Netbeheerder (NBNL waardelijst)"@nl , "System operator (NBNL code list)"@en .
+
+:coteq a skos:Concept ;
+    skos:prefLabel "Coteq Netbeheer B.V." ;
+    foaf:homepage <https://www.coteqnetbeheer.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:edsn a skos:Concept ;
+    skos:prefLabel "Energie Data Services Nederland" ;
+    foaf:homepage <https://www.edsn.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:enexis a skos:Concept ;
+    skos:prefLabel "Enexis Netbeheer B.V." ;
+    foaf:homepage <https://www.enexis.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:gasunie a skos:Concept ;
+    skos:prefLabel "Gasunie Transport Services B.V." ;
+    foaf:homepage <https://www.gasunie.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:liander a skos:Concept ;
+    skos:prefLabel "Liander N.V." ;
+    foaf:homepage <https://www.liander.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:rendo a skos:Concept ;
+    skos:prefLabel "N.V. RENDO" ;
+    foaf:homepage <https://www.rendonetwerken.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:stedin a skos:Concept ;
+    skos:prefLabel "Stedin Netbeheer B.V." ;
+    foaf:homepage <https://www.stedin.net> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:tennet a skos:Concept ;
+    skos:prefLabel "TenneT TSO B.V." ;
+    foaf:homepage <https://www.tennet.eu> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .
+
+:westland a skos:Concept ;
+    skos:prefLabel "Westland Infra Netbeheer B.V." ;
+    foaf:homepage <https://westlandinfra.nl> ;
+    adms:status status:valid ;
+    skos:inScheme <https://begrippen.netbeheernederland.nl/netbeheerder#> .

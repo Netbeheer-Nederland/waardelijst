@@ -1,0 +1,19 @@
+site:
+  url: https://modellen.netbeheernederland.nl/name-authority-lists
+  start_page: ROOT::index.adoc
+content:
+  sources:
+    - url: ''
+      branches: HEAD
+      start_paths: _docs-adoc
+asciidoc:
+  attributes:
+    page-pagination: ''
+    experimental: ''
+output:
+  clean: true
+  dir: docs
+ui:
+  bundle:
+    url: https://github.com/Netbeheer-Nederland/antora-ui-nbnl/releases/download/1.2/ui-bundle.zip
+  default_layout: default

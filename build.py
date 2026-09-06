@@ -13,15 +13,32 @@ ANTORA_COMPONENT_DIR = "_docs-adoc"
 shutil.rmtree(ANTORA_COMPONENT_DIR)
 os.makedirs(ANTORA_COMPONENT_DIR)
 
+attachments_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "attachments")
+pages_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "pages")
+os.makedirs(pages_dir, exist_ok=True)
+os.makedirs(attachments_dir, exist_ok=True)
+
+## Copy index page
+shutil.copyfile(os.path.join(NAL_FILES_DIR, "index.adoc"), os.path.join(pages_dir, "index.adoc"))
+
+## Create nav
+with open(os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "nav.adoc"), "wt") as f:
+    f.write('')
+
 ## Write component descriptor file
 with open(os.path.join(ANTORA_COMPONENT_DIR, "antora.yml"), "wt") as f:
     f.write(textwrap.dedent(f'''
         name: ROOT
         title: NBNL Name Authority Lists
         version: ~
+        nav:
+        - modules/ROOT/nav.adoc
     ''').strip())
 
 for nal_file in os.listdir(NAL_FILES_DIR):
+    if nal_file == "index.adoc":
+        continue
+
     nal_file_path = os.path.join(NAL_FILES_DIR, nal_file)
     # Read and query
     nal = Store()
@@ -58,11 +75,6 @@ for nal_file in os.listdir(NAL_FILES_DIR):
      ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"], key=lambda t: t["id"]["value"])
 
     ## Write page
-    attachments_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "attachments")
-    pages_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "pages")
-    os.makedirs(pages_dir, exist_ok=True)
-    os.makedirs(attachments_dir, exist_ok=True)
-
     adoc_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.adoc.jinja2")
     adoc = adoc_template.render(scheme=scheme, terms=terms)
 
@@ -71,3 +83,6 @@ for nal_file in os.listdir(NAL_FILES_DIR):
 
     ## Copy artifacts
     shutil.copy(nal_file_path, os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "attachments"))
+
+    with open(os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "nav.adoc"), "a") as f:
+        f.write(f'* xref::{scheme["name"]["value"]}.adoc[]\n')

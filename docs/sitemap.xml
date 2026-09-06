@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:8000/netbeheerder.html</loc>
-<lastmod>2026-09-06T18:08:04.863Z</lastmod>
+<loc>https://modellen.netbeheernederland.nl/name-authority-lists/index.html</loc>
+<lastmod>2026-09-06T18:24:31.188Z</lastmod>
+</url>
+<url>
+<loc>https://modellen.netbeheernederland.nl/name-authority-lists/netbeheerder.html</loc>
+<lastmod>2026-09-06T18:24:31.188Z</lastmod>
 </url>
 </urlset>

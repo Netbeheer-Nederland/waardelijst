@@ -39,9 +39,7 @@ terms = sorted(json.loads(nal.query('''
             skos:prefLabel ?prefLabel ;
             foaf:homepage ?homepage ;
             adms:status ?status ;
-            skos:notation ?notation ;
-            skos:topConceptOf ?scheme .
-        ?scheme dcterms:title ?schemeTitle .
+            skos:notation ?notation .
     }
  ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"], key=lambda t: t["id"]["value"])
 
@@ -54,7 +52,7 @@ with open(os.path.join(ANTORA_COMPONENT_DIR, "antora.yml"), "wt") as f:
     f.write(textwrap.dedent(f'''
         name: ROOT
         version: ~
-    '''))
+    ''').strip())
 
 ## Write page
 pages_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "pages")
@@ -63,5 +61,7 @@ os.makedirs(pages_dir, exist_ok=True)
 adoc_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.adoc.jinja2")
 adoc = adoc_template.render(scheme=scheme, terms=terms)
 
-with open(os.path.join(pages_dir, scheme["name"]["value"]), "wt") as f:
+with open(os.path.join(pages_dir, scheme["name"]["value"] + ".adoc"), "wt") as f:
     f.write(adoc)
+
+print(json.dumps(terms, indent=4))

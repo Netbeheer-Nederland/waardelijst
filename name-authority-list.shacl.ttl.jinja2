@@ -1,4 +1,4 @@
-{% set base_iri = scheme["name"]["value"] | replace("#", "/shacl#") %}
+{% set base_iri = scheme["id"]["value"] | replace("#", "/shacl#") %}
 @prefix : <{{ base_iri }}> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .

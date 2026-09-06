@@ -1,5 +1,5 @@
 
-@prefix : <netbeheerder> .
+@prefix : <https://modellen.netbeheernederland.nl/name-authority-lists/netbeheerder/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 

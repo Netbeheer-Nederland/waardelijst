@@ -74,15 +74,23 @@ for nal_file in os.listdir(NAL_FILES_DIR):
         }
      ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"], key=lambda t: t["id"]["value"])
 
-    ## Write page
+    # Generate documentation
     adoc_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.adoc.jinja2")
     adoc = adoc_template.render(scheme=scheme, terms=terms)
 
     with open(os.path.join(pages_dir, scheme["name"]["value"] + ".adoc"), "wt") as f:
         f.write(adoc)
 
-    ## Copy artifacts
+    # Generate SHACL
+    shacl_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.shacl.ttl.jinja2")
+    shacl = shacl_template.render(scheme=scheme, terms=terms)
+
+    with open(os.path.join(attachments_dir, scheme["name"]["value"] + ".shacl.ttl"), "wt") as f:
+        f.write(shacl)
+
+    # Copy SKOS file
     shutil.copy(nal_file_path, os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "attachments"))
 
+    # Expand nav
     with open(os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "nav.adoc"), "a") as f:
         f.write(f'* xref::{scheme["name"]["value"]}.adoc[]\n')

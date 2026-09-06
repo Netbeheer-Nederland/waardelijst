@@ -28,6 +28,8 @@ scheme = json.loads(nal.query('''
     }
 ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"][0]
 
+print(scheme)
+
 terms = sorted(json.loads(nal.query('''
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -59,9 +61,7 @@ pages_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "pages")
 os.makedirs(pages_dir, exist_ok=True)
 
 adoc_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.adoc.jinja2")
-adoc = adoc_template.render(scheme=scheme, terms=terms)
+adoc = adoc_template.render(scheme=scheme, base_iri="https://modellen.netbeheernederland.nl/name-authority-lists/netbeheerder#", terms=terms)  # TODO: Base IRI should be parsed from document.
 
 with open(os.path.join(pages_dir, scheme["name"]["value"] + ".adoc"), "wt") as f:
     f.write(adoc)
-
-print(json.dumps(terms, indent=4))

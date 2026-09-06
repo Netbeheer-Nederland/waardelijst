@@ -15,4 +15,5 @@ output:
   dir: docs
 ui:
   bundle:
-    url: ../../cimug-org/antora-ui-cimug-spec/build/ui-bundle.zip
+    url: https://github.com/Netbeheer-Nederland/antora-ui-nbnl/releases/download/1.2/ui-bundle.zip
+  default_layout: default

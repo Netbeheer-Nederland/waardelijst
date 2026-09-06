@@ -2,8 +2,14 @@
 
 == Names
 
+|===
+| Name | CURIE | Code | Homepage | Status
 {% for term in terms %}
-=== {{ term["prefLabel"]["value"] }}
+| {{ term["prefLabel"]["value"] }}
+| `{{ term["id"]["value"] | replace(base_iri, ":") }}`
+| `{{ term["notation"]["value"] }}`
+| {{ term["homepage"]["value"] }}
+| `{{ term["status"]["value"] | replace ("https://inspire.ec.europa.eu/registry/status/", "") }}`
 
-URI: {{ term["id"]["value"] }}
 {% endfor %}
+|===

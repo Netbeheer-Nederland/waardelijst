@@ -1,15 +1,57 @@
 = {{ scheme["title"]["value"] }}
 
+See also:: {{ scheme["seeAlso"]["value"] }}
+
 == Names
 
 |===
-| Name | CURIE | Code | Homepage | Status
-{% for term in terms %}
-| {{ term["prefLabel"]["value"] }}
-| `{{ term["id"]["value"] | replace(base_iri, ":") }}`
-| `{{ term["notation"]["value"] }}`
+| Name | Code | Homepage | Status
+
+{% for term in terms if not term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
+| *{{ term["prefLabel"]["value"] }}*
+| {{ term["id"]["value"] | replace(base_iri, "") }}
 | {{ term["homepage"]["value"] }}
 | `{{ term["status"]["value"] | replace ("https://inspire.ec.europa.eu/registry/status/", "") }}`
-
 {% endfor %}
 |===
+
+{% for term in terms if not term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
+
+=== {{ term["prefLabel"]["value"] }}
+[.small]_{{ term["id"]["value"] }}_
+
+[horizontal,labelwidth=10,itemwidth=90]
+Code:: `{{ term["notation"]["value"] }}`
+{% if "homepage" in term %}Homepage:: {{ term["homepage"]["value"] }}{% endif %}
+Status:: `{{ term["status"]["value"] | replace ("https://inspire.ec.europa.eu/registry/status/", "") }}`
+
+{% endfor %}
+
+
+
+
+== Names 3
+
+{% for term in terms if not term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
+=== {{ term["prefLabel"]["value"] }}
+[.small]_{{ term["id"]["value"] }}_
+
+[horizontal,labelwidth=10,itemwidth=90]
+Code:: `{{ term["notation"]["value"] }}`
+{% if "homepage" in term %}Homepage:: {{ term["homepage"]["value"] }}{% endif %}
+Status:: `{{ term["status"]["value"] | replace ("https://inspire.ec.europa.eu/registry/status/", "") }}`
+
+{% endfor %}
+
+== Names 2
+
+{% for term in terms if not term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
+[%collapsible]
+.[#{{ term["prefLabel"]["value"] }}.big]*{{ term["prefLabel"]["value"]}}*
+====
+[horizontal,labelwidth=10,itemwidth=90]
+Code:: `{{ term["notation"]["value"] }}`
+{% if "homepage" in term %}Homepage:: {{ term["homepage"]["value"] }}{% endif %}
+Status:: `{{ term["status"]["value"] | replace ("https://inspire.ec.europa.eu/registry/status/", "") }}`
+====
+{% endfor %}

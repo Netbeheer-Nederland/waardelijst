@@ -11,8 +11,10 @@
 : a skos:ConceptScheme , owl:Ontology ;
     rdfs:seeAlso <https://begrippen.netbeheernederland.nl/id/x6zcz> ;
     skos:notation "netbeheerder" ;
-    dcterms:title "Netbeheerder (NBNL waardelijst)"@nl ,
-                  "System operator (NBNL code list)"@en .
+    dcterms:type "NBNL Name Authority List" ;
+    dcterms:title "Netbeheerder"@nl .
+    # dcterms:title "Netbeheerder"@nl ,
+    #               "System operator"@en .
 
 :coteq a skos:Concept ;
     skos:prefLabel "Coteq Netbeheer B.V." ;

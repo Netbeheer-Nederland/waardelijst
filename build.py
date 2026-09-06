@@ -53,6 +53,7 @@ os.makedirs(ANTORA_COMPONENT_DIR)
 with open(os.path.join(ANTORA_COMPONENT_DIR, "antora.yml"), "wt") as f:
     f.write(textwrap.dedent(f'''
         name: ROOT
+        title: {scheme["title"]["value"]}
         version: ~
     ''').strip())
 

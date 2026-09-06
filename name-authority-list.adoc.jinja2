@@ -12,7 +12,7 @@ Artifacts::
 | Name | Code | Homepage
 
 {% for term in terms if not term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
-| {{ term["id"]["value"] }}[*{{ term["prefLabel"]["value"] }}*]
+| [[{{ term["code"]["value"] }}]]{{ term["id"]["value"] }}[*{{ term["prefLabel"]["value"] }}*]
 | `{{ term["code"]["value"] }}`
 | {{ term["homepage"]["value"] }}
 {% endfor %}
@@ -23,4 +23,3 @@ Artifacts::
 {% for term in terms if term["status"]["value"] == "https://inspire.ec.europa.eu/registry/status/invalid" %}
 {{ term["id"]["value"] }}[{{ term["prefLabel"]["value"] }}]{% if not loop.last %}, {% endif %}
 {%- endfor %}
-

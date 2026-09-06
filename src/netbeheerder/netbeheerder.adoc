@@ -1,0 +1,57 @@
+= Netbeheerder
+
+Name authority list for concept https://begrippen.netbeheernederland.nl/id/x6zcz[netbeheerder].
+
+See also::
+    https://begrippen.netbeheernederland.nl/id/x6zcz[netbeheerder] (NBNL begrippenkader)
+
+== Names
+
+|===
+| Code | Name | Homepage | Status
+
+| `COTEQ`
+| Coteq Netbeheer B.V.
+| https://www.coteqnetbeheer.nl
+| `valid`
+
+| `EDSN`
+| Energie Data Services Nederland
+| https://www.edsn.nl
+| `valid`
+
+| `ENEXIS`
+| Enexis Netbeheer B.V.
+| https://www.enexis.nl
+| `valid`
+
+| `GASUNIE`
+| Gasunie Transport Services B.V.
+| https://www.gasunie.nl
+| `valid`
+
+| `LIANDER`
+| Liander N.V.
+| https://www.liander.nl
+| `valid`
+
+| `RENDO`
+| N.V. RENDO
+| https://www.rendonetwerken.nl
+| `valid`
+
+| `STEDIN`
+| Stedin Netbeheer B.V.
+| https://www.stedin.net
+| `valid`
+
+| `TENNET`
+| TenneT TSO B.V.
+| https://www.tennet.eu
+| `valid`
+
+| `WESTLAND`
+| Westland Infra Netbeheer B.V.
+| https://westlandinfra.nl
+| `valid`
+|===

@@ -10,6 +10,7 @@
 
 : a skos:ConceptScheme , owl:Ontology ;
     rdfs:seeAlso <https://begrippen.netbeheernederland.nl/id/x6zcz> ;
+    skos:notation "netbeheerder" ;
     dcterms:title "Netbeheerder (NBNL waardelijst)"@nl ,
                   "System operator (NBNL code list)"@en .
 

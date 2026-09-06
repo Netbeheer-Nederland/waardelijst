@@ -1,10 +1,17 @@
+import os
+import os.path
 import json
+import textwrap
+import shutil
 import jinja2
 from pyoxigraph import *
 
+NAL_FILE = "src/netbeheerder/netbeheerder.skos.ttl"
+ANTORA_COMPONENT_DIR = "_docs-adoc"
+
 # Read and query
 nal = Store()
-for triple in parse(path="src/netbeheerder/netbeheerder.skos.ttl", format=RdfFormat.TURTLE):
+for triple in parse(path=NAL_FILE, format=RdfFormat.TURTLE):
     nal.add(triple)
 
 # Parse query and serialize to dictionary
@@ -16,6 +23,7 @@ scheme = json.loads(nal.query('''
     WHERE {
         ?id a skos:ConceptScheme ;
             rdfs:seeAlso ?seeAlso ;
+            skos:notation ?name ;
             dcterms:title ?title .
     }
 ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"][0]
@@ -37,7 +45,23 @@ terms = sorted(json.loads(nal.query('''
     }
  ''').serialize(format=QueryResultsFormat.JSON))["results"]["bindings"], key=lambda t: t["id"]["value"])
 
-# Render AsciiDoc page
+# Create Antora component
+shutil.rmtree(ANTORA_COMPONENT_DIR)
+os.makedirs(ANTORA_COMPONENT_DIR)
+
+## Write component descriptor file
+with open(os.path.join(ANTORA_COMPONENT_DIR, "antora.yml"), "wt") as f:
+    f.write(textwrap.dedent(f'''
+        name: ROOT
+        version: ~
+    '''))
+
+## Write page
+pages_dir = os.path.join(ANTORA_COMPONENT_DIR, "modules", "ROOT", "pages")
+os.makedirs(pages_dir, exist_ok=True)
+
 adoc_template = jinja2.Environment(loader=jinja2.FileSystemLoader(".")).get_template("name-authority-list.adoc.jinja2")
 adoc = adoc_template.render(scheme=scheme, terms=terms)
-print(adoc)
+
+with open(os.path.join(pages_dir, scheme["name"]["value"]), "wt") as f:
+    f.write(adoc)

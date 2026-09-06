@@ -1,0 +1,9 @@
+= {{ scheme["title"]["value"] }}
+
+== Names
+
+{% for term in terms %}
+=== {{ term["prefLabel"]["value"] }}
+
+URI: {{ term["id"]["value"] }}
+{% endfor %}

@@ -9,14 +9,14 @@
 @prefix owl: <http://www.w3.org/2002/07/owl> .
 
 : a skos:ConceptScheme , owl:Ontology ;
-    rdfs:seeAlso <https://begrippen.netbeheernederland.nl/id/x6zcz> ;
+    dcterms:subject <https://begrippen.netbeheernederland.nl/id/x6zcz> ;
     skos:notation "netbeheerder" ;
     dcterms:type "NBNL Name Authority List" ;
     dcterms:title "Netbeheerder"@nl .
     # dcterms:title "Netbeheerder"@nl ,
     #               "System operator"@en .
 
-:coteq a skos:Concept ;
+:COTEQ a skos:Concept ;
     skos:prefLabel "Coteq Netbeheer B.V." ;
     foaf:homepage <https://www.coteqnetbeheer.nl> ;
     adms:status status:valid ;
@@ -24,7 +24,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:edsn a skos:Concept ;
+:EDSN a skos:Concept ;
     skos:prefLabel "Energie Data Services Nederland" ;
     foaf:homepage <https://www.edsn.nl> ;
     adms:status status:valid ;
@@ -32,7 +32,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:enexis a skos:Concept ;
+:ENEXIS a skos:Concept ;
     skos:prefLabel "Enexis Netbeheer B.V." ;
     foaf:homepage <https://www.enexis.nl> ;
     adms:status status:valid ;
@@ -40,7 +40,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:gasunie a skos:Concept ;
+:GASUNIE a skos:Concept ;
     skos:prefLabel "Gasunie Transport Services B.V." ;
     foaf:homepage <https://www.gasunie.nl> ;
     adms:status status:valid ;
@@ -48,7 +48,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:liander a skos:Concept ;
+:LIANDER a skos:Concept ;
     skos:prefLabel "Liander N.V." ;
     foaf:homepage <https://www.liander.nl> ;
     adms:status status:valid ;
@@ -56,7 +56,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:rendo a skos:Concept ;
+:RENDO a skos:Concept ;
     skos:prefLabel "N.V. RENDO" ;
     foaf:homepage <https://www.rendonetwerken.nl> ;
     adms:status status:valid ;
@@ -64,7 +64,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:stedin a skos:Concept ;
+:STEDIN a skos:Concept ;
     skos:prefLabel "Stedin Netbeheer B.V." ;
     foaf:homepage <https://www.stedin.net> ;
     adms:status status:valid ;
@@ -72,7 +72,7 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:tennet a skos:Concept ;
+:TENNET a skos:Concept ;
     skos:prefLabel "TenneT TSO B.V." ;
     foaf:homepage <https://www.tennet.eu> ;
     adms:status status:valid ;
@@ -80,10 +80,26 @@
     skos:topConceptOf : ;
     skos:inScheme : .
 
-:westland a skos:Concept ;
+:WESTLAND a skos:Concept ;
     skos:prefLabel "Westland Infra Netbeheer B.V." ;
     foaf:homepage <https://westlandinfra.nl> ;
     adms:status status:valid ;
     skos:notation "WESTLAND" ;
+    skos:topConceptOf : ;
+    skos:inScheme : .
+
+:NUON a skos:Concept ;
+    skos:prefLabel "NUON" ;
+    foaf:homepage <https://nuon.nl> ;
+    adms:status status:invalid ;
+    skos:notation "NUON" ;
+    skos:topConceptOf : ;
+    skos:inScheme : .
+
+:ESSENT a skos:Concept ;
+    skos:prefLabel "ESSENT" ;
+    foaf:homepage <https://essent.nl> ;
+    adms:status status:invalid ;
+    skos:notation "ESSENT" ;
     skos:topConceptOf : ;
     skos:inScheme : .

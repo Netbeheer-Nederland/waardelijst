@@ -22,7 +22,7 @@ scheme = json.loads(nal.query('''
     SELECT *
     WHERE {
         ?id a skos:ConceptScheme ;
-            rdfs:seeAlso ?seeAlso ;
+            dcterms:subject ?subject ;
             skos:notation ?name ;
             dcterms:title ?title .
     }
